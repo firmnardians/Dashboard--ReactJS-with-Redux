@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Notification from "../Notification/Notification";
-import CreateOutlet from "../../controllers/CreateOutlet/CreateOutlet";
-import "./Navbar.css";
+import Notification from "../Notification/notification";
+import { Link } from "react-router-dom";
+import "./navbar.css";
+import ButtonBig from "../Button/ButtonBig";
 
 class Navbar extends Component {
   render() {
@@ -13,9 +14,11 @@ class Navbar extends Component {
           </div>
           <div className="card-navbar-menu">
             <ul className="navbar-list">
-              <li className="sm-none">
-                <CreateOutlet />
-              </li>
+              <Link to="/create-outlet">
+                <li className="sm-none">
+                  <ButtonBig title="Create Outlet" className="mr-20" />
+                </li>
+              </Link>
               <li>
                 <Notification />
               </li>

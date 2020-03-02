@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import "./Drawer.css";
+import "./drawer.css";
 
 class Drawer extends Component {
   render() {
@@ -19,20 +19,20 @@ class Drawer extends Component {
               </NavLink>
 
               <NavLink
+                activeClassName="btnLinkMenu--active"
+                className="btnLinkMenu"
+                to="/report"
+              >
+                <i className="material-icons menu-icon">assessment</i>Report
+              </NavLink>
+
+              <NavLink
                 exact
                 activeClassName="btnLinkMenu--active"
                 className="btnLinkMenu"
                 to="/business"
               >
                 <i className="material-icons menu-icon">store</i>Business
-              </NavLink>
-
-              <NavLink
-                activeClassName="btnLinkMenu--active"
-                className="btnLinkMenu"
-                to="/report"
-              >
-                <i className="material-icons menu-icon">assessment</i>Report
               </NavLink>
             </div>
 

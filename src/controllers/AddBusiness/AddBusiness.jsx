@@ -6,7 +6,7 @@ import TextArea from "../../components/TextArea/TextArea";
 import CardBusiness from "../../components/Card/CardBusiness/CardBusiness";
 import axios from "axios";
 
-import "../../components/Modal/Modal.css";
+import "../../components/Modal/modal.css";
 
 export class AddBusiness extends Component {
   constructor(props) {

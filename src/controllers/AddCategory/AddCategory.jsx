@@ -3,7 +3,7 @@ import Overlay from "../../components/Overlay/Overlay";
 import Empty from "../../components/Empty/Empty";
 import { v4 as uuidv4 } from "uuid";
 
-import "../../components/Modal/Modal.css";
+import "../../components/Modal/modal.css";
 
 export class AddCategory extends Component {
   constructor(props) {

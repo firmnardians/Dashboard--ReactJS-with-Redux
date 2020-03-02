@@ -13,6 +13,8 @@ import TaxServices from "./screens/TaxServices/TaxServices";
 import Inventory from "./screens/Inventory/Inventory";
 import ProductItem from "./screens/ProductItem/ProductItem";
 import ProductCategory from "./screens/ProductCategory/ProductCategory";
+import Outlet from "./screens/Outlet/Outlet";
+import Setting from "./screens/Setting/Setting";
 
 import "./App.css";
 
@@ -38,6 +40,8 @@ function App() {
           <Route path="/promo" component={Promo}></Route>
           <Route path="/billing" component={Billing}></Route>
           <Route path="/account" component={Account}></Route>
+          <Route path="/setting" component={Setting}></Route>
+          <Route path="/create-outlet" component={Outlet}></Route>
         </Switch>
       </div>
     </div>

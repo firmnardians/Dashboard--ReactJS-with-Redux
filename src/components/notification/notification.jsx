@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Notification.css";
+import "./notification.css";
+
 class Notification extends Component {
   constructor(props) {
     super(props);

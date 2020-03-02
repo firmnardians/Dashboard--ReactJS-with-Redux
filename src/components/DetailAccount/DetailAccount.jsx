@@ -12,6 +12,9 @@ const DetailAccount = props => {
           <div className="data-info-account">
             <h3>{props.title}</h3>
           </div>
+          <div className="card-edit-account">
+            <h3>{props.edit}</h3>
+          </div>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ButtonBig from "../../components/Button/ButtonBig";
 
-import "./Employee.css";
+import "./employee.css";
 
 export class Employee extends Component {
   render() {

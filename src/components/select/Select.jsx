@@ -1,5 +1,5 @@
 import React from "react";
-import "./Select.css";
+import "./select.css";
 
 const Select = props => {
   return (
