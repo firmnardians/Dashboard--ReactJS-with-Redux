@@ -4,8 +4,14 @@
   border-radius: 2px;
   letter-spacing: 1px;
 }
+.btn:active {
+  opacity: 0.8;
+}
+.btn:hover {
+  opacity: 0.8;
+}
 .btn-primary {
-  background: rgb(27, 94, 79);
+  background: rgb(42, 138, 108);
 }
 .btn-sucess {
   background: rgb(47, 96, 201);
@@ -23,4 +29,20 @@
 .btn-small {
   padding: 6px 8px;
   font-size: 0.9em;
+}
+.btn-disable {
+  cursor: not-allowed !important;
+  background: rgb(42, 138, 108);
+  opacity: 0.5;
+}
+
+.btn-disable:active {
+  cursor: not-allowed !important;
+  background: rgb(42, 138, 108);
+  opacity: 0.5;
+}
+.btn-disable:hover {
+  cursor: not-allowed !important;
+  background: rgb(42, 138, 108);
+  opacity: 0.5;
 }

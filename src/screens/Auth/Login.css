@@ -1,0 +1,56 @@
+.card-login-app {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -40%);
+  top: 50%;
+}
+.icon-show-password {
+  position: absolute;
+  top: -13px;
+  left: -40px;
+}
+.card-show-password {
+  position: relative;
+}
+.card-form-login {
+  border-radius: 5px;
+  background-color: #fff;
+  width: 400px;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 20%);
+  margin-bottom: 50px;
+}
+.card-title-login {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.card-title-login h1 {
+  font-weight: bold;
+  margin: 0;
+}
+.card-title-login p {
+  margin-top: 5px;
+}
+.card-input-login {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.input-form-login {
+  padding: 8px 14px;
+  border-radius: 4px;
+  width: 100%;
+  border: 2px solid #000000;
+  font-size: 18px;
+}
+.card-forget-password-login {
+  display: flow-root;
+}
+.card-forget-password-login p {
+  float: right;
+  margin-top: 0px;
+}

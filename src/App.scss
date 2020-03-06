@@ -1,3 +1,6 @@
+$primaryColor: #031b4d;
+$secondaryColor: rgb(42, 138, 108);
+
 @font-face {
   font-family: "Material Icons";
   font-style: normal;
@@ -34,6 +37,7 @@
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -46,6 +50,13 @@ body {
   top: 5px;
 }
 /* icons center */
+
+// Color
+.color-primary {
+  color: $secondaryColor;
+}
+
+// Color
 
 /* Heading */
 h1 {
@@ -241,3 +252,35 @@ h6 {
   cursor: pointer;
 }
 /* cursor */
+
+// alert
+.card-alert {
+  padding: 8px 12px;
+  display: block;
+  border-radius: 4px;
+}
+.card-alert-disable {
+  display: none;
+}
+.card-alert p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+.failed {
+  background: rgb(189, 44, 58);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+// alert
+
+// hide number
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+// hide number
