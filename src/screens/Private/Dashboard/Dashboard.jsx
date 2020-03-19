@@ -1,14 +1,44 @@
 import React, { Component } from "react";
-import DetailTransactions from "../../components/DetailTransactions/DetailTransactions";
-import SellData from "../../components/Chart/SellData";
+import axios from "axios";
+import DetailTransactions from "../../../components/DetailTransactions/DetailTransactions";
+import SellData from "../../../components/Chart/SellData";
+import { connect } from "react-redux";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Business: ["All Business", "Ayam Geprek", "Cofee Shop"],
-      Outlet: ["All Outlet", "Ayam Kisamaun", "Kopi Kenangan"]
+      myBusiness: []
     };
+  }
+
+  myBusinessAPI = () => {
+    const BusinessList = JSON.stringify({
+      id: this.props.user_id,
+      token: this.props.token,
+      data_type: 3
+    });
+
+    axios
+      .post(
+        "https://devtest-api-beo.hop.cash/v1/api/data/general",
+        BusinessList
+      )
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          this.setState({
+            myBusiness: res.data
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  componentDidMount() {
+    this.myBusinessAPI();
   }
   render() {
     return (
@@ -24,18 +54,16 @@ class Dashboard extends Component {
           <div className="card-flex mb-20">
             <div className="card-grid">
               <select className="select-group mr-20">
-                {this.state.Business.map((itemsBusinessDashboard, Index) => (
-                  <option value={itemsBusinessDashboard} key={Index}>
-                    {itemsBusinessDashboard}
-                  </option>
-                ))}
+                {this.state.myBusiness.map(item => {
+                  return (
+                    <option key={item.id} value={item.id}>
+                      {item.name}
+                    </option>
+                  );
+                })}
               </select>
               <select className="select-group">
-                {this.state.Outlet.map((itemsOutletDashboard, Index) => (
-                  <option value={itemsOutletDashboard} key={Index}>
-                    {itemsOutletDashboard}
-                  </option>
-                ))}
+                <option value="test">test</option>
               </select>
             </div>
           </div>
@@ -67,4 +95,11 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const stateToProps = state => {
+  return {
+    token: state.auth.token,
+    user_id: state.auth.user_id
+  };
+};
+
+export default connect(stateToProps)(Dashboard);

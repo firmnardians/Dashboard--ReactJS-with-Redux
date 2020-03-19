@@ -1,8 +1,8 @@
-.card-signup-app {
+.card-login-app {
   transform: translate(-50%, -50%);
   left: 50%;
   position: absolute;
-  -webkit-transform: translate(-50%, -30%);
+  -webkit-transform: translate(-50%, -40%);
   top: 50%;
 }
 .icon-show-password {
@@ -13,7 +13,7 @@
 .card-show-password {
   position: relative;
 }
-.card-form-signup {
+.card-form-login {
   border-radius: 5px;
   background-color: #fff;
   width: 400px;
@@ -23,37 +23,34 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 20%);
   margin-bottom: 50px;
 }
-.card-title-signup {
+.card-title-login {
   text-align: left;
   margin-bottom: 20px;
 }
-.card-title-signup h1 {
+.card-title-login h1 {
   font-weight: bold;
   margin: 0;
 }
-.card-title-signup p {
+.card-title-login p {
   margin-top: 5px;
 }
-.card-input-signup {
+.card-input-login {
   align-items: center;
   display: flex;
   width: 100%;
   margin-bottom: 20px;
 }
-.card-input-signup-disable {
-  display: none;
-}
-.input-form-signup {
+.input-form-login {
   padding: 8px 14px;
   border-radius: 4px;
   width: 100%;
-  border: 2px solid #000000;
+  border: 2px solid #0000009e;
   font-size: 18px;
 }
-.card-refferal-signup {
+.card-forget-password-login {
   display: flow-root;
 }
-.card-refferal-signup p {
+.card-forget-password-login p {
   float: right;
-  margin: 0px;
+  margin-top: 0px;
 }

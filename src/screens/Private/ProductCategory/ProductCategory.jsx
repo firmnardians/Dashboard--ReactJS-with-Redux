@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AddCategory from "../../controllers/AddCategory/AddCategory";
 
 export class ProductCategory extends Component {
   render() {
@@ -9,7 +8,7 @@ export class ProductCategory extends Component {
           <h1>Product category </h1>
         </div>
 
-        <AddCategory />
+        <h2>test</h2>
       </div>
     );
   }

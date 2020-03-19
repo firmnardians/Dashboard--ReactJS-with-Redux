@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-// Component
-import ButtonBig from "../../components/Button/ButtonBig";
-
-// Styling
+import { loginUser } from "../../../../redux/Actions/AuthAction";
+import { connect } from "react-redux";
+import ButtonBig from "../../../../components/Button/ButtonBig";
 import "./Login.css";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loadingSubmit: "Masuk",
-      loginFailed: "",
+      button: "Masuk",
+      alert: false,
       showPassword: false,
+
       data: {
         email: "",
         password: ""
@@ -22,36 +21,37 @@ class Login extends Component {
     };
   }
 
-  postDataAPI = () => {
+  postAPILogin = async () => {
     const { email, password } = this.state.data;
     const payload = JSON.stringify({
       email: email,
       password: password
     });
 
-    axios
+    await axios
       .post("https://devtest-api-beo.hop.cash/v1/api/auth/login", payload)
       .then(res => {
-        const _response = res.data;
-        console.log(_response);
+        // const _response = res.data;
+        // console.log(_response);
         if (res.data.status === "00") {
-          localStorage.setItem("name", res.data.name);
-          localStorage.setItem("id", res.data.user_id);
-          localStorage.setItem("role_id", res.data.role_id);
-          localStorage.setItem("phone_number", res.data.phone_number);
-          localStorage.setItem("email", res.data.email);
-          localStorage.setItem("lang", res.data.lang);
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem(
-            "permission",
-            JSON.stringify(res.data.permission)
-          );
-          console.log(res.data.message);
-          this.loadingSubmit();
+          console.log(res.data);
+          this.loadingButton();
+          this.props.__loginUser({
+            user_id: res.data.user_id,
+            name: res.data.name,
+            role_id: res.data.role_id,
+            phone_number: res.data.phone_number,
+            email: res.data.email,
+            lang: res.data.lang,
+            permission: res.data.permission,
+            token: res.data.token
+          });
+          this.props.history.push("/");
         } else {
-          console.log(res.data.message);
+          // console.log(res.data.message);
           this.setState({
-            loginFailed: res.data.message
+            alert: res.data.message,
+            button: "Masuk"
           });
           this.resetAlert();
         }
@@ -65,25 +65,18 @@ class Login extends Component {
     // console.log(event.target.name);
     let newData = { ...this.state.data };
     newData[event.target.name] = event.target.value;
+    // console.log(newData);
     this.setState({
       data: newData
     });
-    // console.log(this.state.data);
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log(this.state.data);
-    // console.log(email);
-    // console.log(password);
-  };
-
-  clickSubmit = () => {
-    if (!this.state.data.email) {
-      console.log("button disable");
-    } else {
-      this.postDataAPI();
-    }
+    this.postAPILogin();
+    this.setState({
+      button: "Loading..."
+    });
   };
 
   clickShowPassword = () => {
@@ -92,57 +85,54 @@ class Login extends Component {
     });
   };
 
-  loadingSubmit = () => {
+  loadingButton = () => {
     this.setState({
-      loadingSubmit: "Loading..."
+      button: "Loading..."
     });
   };
 
   resetAlert = () => {
     setTimeout(() => {
       this.setState({
-        loginFailed: !this.state.loginFailed
+        alert: !this.state.alert
       });
     }, 3000);
   };
 
   render() {
-    // button Disable start
     const { email, password } = this.state.data;
     const buttonEnable = email.length > 0 && password.length >= 3;
-    let loginButton;
+    let submitButton;
 
     if (!buttonEnable) {
-      loginButton = (
+      submitButton = (
         <ButtonBig
-          title={this.state.loadingSubmit}
-          className={"ds-block text-center mg-0 fw-bold btn-disable"}
-          onClick={null}
+          title={this.state.button}
+          disabled
+          className={"width-100 text-center mg-0 fw-bold btn-disable"}
         />
       );
     } else {
-      loginButton = (
+      submitButton = (
         <ButtonBig
-          title={this.state.loadingSubmit}
-          className={"ds-block text-center mg-0 fw-bold "}
-          onClick={this.clickSubmit}
+          title={this.state.button}
+          className={"width-100 text-center mg-0 fw-bold"}
         />
       );
     }
-    // button Disable finish
 
     return (
       <>
         <div className="card-login-app">
           <div className="card-form-login">
             <div className="card-title-login">
-              <h1>Masuk</h1>
+              <h1>Masuk </h1>
               <p>Silahkan masuk dengan akun yang sudah Anda buat.</p>
             </div>
             <form onSubmit={this.handleSubmit}>
               <div className="card-input-login">
                 <input
-                  type="text"
+                  type="email"
                   required
                   autoComplete="off"
                   placeholder="Email"
@@ -170,26 +160,28 @@ class Login extends Component {
                   </i>
                 </div>
               </div>
-              <div className="card-forget-password-login ">
-                <p>Lupa password?</p>
-              </div>
+              <Link to="/forgot-password">
+                <div className="card-forget-password-login color-primary">
+                  <p>Lupa password?</p>
+                </div>
+              </Link>
               <div
                 className={
-                  !this.state.loginFailed
+                  !this.state.alert
                     ? "card-alert-disable failed"
                     : "card-alert failed"
                 }
               >
-                <p>{this.state.loginFailed}</p>
+                <p>{this.state.alert}</p>
               </div>
 
-              {loginButton}
+              {submitButton}
             </form>
 
             <div className="card-footer-login">
               <p>
                 Belum punya akun?
-                <Link className="color-primary fw-600 pl-5" to="/signup">
+                <Link className="color-primary fw-600 pl-5" to="/register">
                   Daftar sekarang
                 </Link>
               </p>
@@ -201,4 +193,26 @@ class Login extends Component {
   }
 }
 
-export default Login;
+// ini dari reducernya
+const stateToProps = state => {
+  return {
+    isAuth: state.auth.isAuthenticated,
+    user_id: state.auth.user_id,
+    name: state.auth.name,
+    role_id: state.auth.role_id,
+    phone_number: state.auth.phone_number,
+    email: state.auth.email,
+    lang: state.auth.lang,
+    permission: state.auth.permission,
+    token: state.auth.token
+  };
+};
+
+// ini dari actionnya
+const dispatchToProps = dispatch => ({
+  __loginUser: payload => {
+    dispatch(loginUser(payload));
+  }
+});
+
+export default connect(stateToProps, dispatchToProps)(Login);

@@ -1,19 +1,20 @@
-.card-login-app {
+.card-detail-app {
   transform: translate(-50%, -50%);
   left: 50%;
   position: absolute;
-  -webkit-transform: translate(-50%, -40%);
+  -webkit-transform: translate(-50%, -25%);
   top: 50%;
 }
-.icon-show-password {
-  position: absolute;
-  top: -13px;
-  left: -40px;
+.select-detail {
+  padding: 8px 14px;
+  border-radius: 4px;
+  width: 100%;
+  border: 2px solid #0000009e;
+  font-size: 18px;
+  height: 45px;
+  background: #ffffff;
 }
-.card-show-password {
-  position: relative;
-}
-.card-form-login {
+.card-form-detail {
   border-radius: 5px;
   background-color: #fff;
   width: 400px;
@@ -23,34 +24,31 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 20%);
   margin-bottom: 50px;
 }
-.card-title-login {
+
+.card-title-detail {
   text-align: left;
   margin-bottom: 20px;
 }
-.card-title-login h1 {
+.card-title-detail h1 {
   font-weight: bold;
   margin: 0;
 }
-.card-title-login p {
+.card-title-detail p {
   margin-top: 5px;
 }
-.card-input-login {
+.card-input-detail {
   align-items: center;
   display: flex;
   width: 100%;
   margin-bottom: 20px;
 }
-.input-form-login {
+.card-input-detail-disable {
+  display: none;
+}
+.input-form-detail {
   padding: 8px 14px;
   border-radius: 4px;
   width: 100%;
-  border: 2px solid #000000;
+  border: 2px solid #0000009e;
   font-size: 18px;
-}
-.card-forget-password-login {
-  display: flow-root;
-}
-.card-forget-password-login p {
-  float: right;
-  margin-top: 0px;
 }

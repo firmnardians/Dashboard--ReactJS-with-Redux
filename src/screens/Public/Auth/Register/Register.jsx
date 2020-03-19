@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { registerUser } from "../../../../redux/Actions/AuthAction";
+import { connect } from "react-redux";
+import ButtonBig from "../../../../components/Button/ButtonBig";
+import "./Register.css";
 
-// Component
-import ButtonBig from "../../components/Button/ButtonBig";
-
-// Styling
-import "./Signup.css";
-
-class Signup extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loadingSubmit: "Buat Akun",
-      signupFailed: "",
+      button: "Buat Akun",
+      alert: false,
       showRefferal: false,
       showPassword: false,
 
@@ -27,7 +25,7 @@ class Signup extends Component {
     };
   }
 
-  postDataAPI = () => {
+  postAPIRegister = () => {
     let { name, phone_number, email, password, refferal } = this.state.data;
     const payload = JSON.stringify({
       name: name,
@@ -38,28 +36,29 @@ class Signup extends Component {
     });
 
     axios
-      .post("http://devtest-api-beo.hop.cash/v1/api/auth/register", payload)
-      .then(res => {
+      .post("https://devtest-api-beo.hop.cash/v1/api/auth/register", payload)
+      .then(async res => {
         const _response = res.data;
         console.log(_response);
 
         if (res.data.status === "00") {
-          localStorage.setItem("name", res.data.name);
-          localStorage.setItem("id", res.data.id);
-          localStorage.setItem("role_id", res.data.role_id);
-          localStorage.setItem("phone_number", res.data.phone_number);
-          localStorage.setItem("email", res.data.email);
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem(
-            "permission",
-            JSON.stringify(res.data.permission)
-          );
-          console.log(res.data.message);
-          this.loadingSubmit();
+          // console.log(res.data.message);
+          this.loadingButton();
+          await this.props.__registerUser({
+            user_id: res.data.id,
+            name: res.data.name,
+            role_id: res.data.role_id,
+            phone_number: res.data.phone_number,
+            email: res.data.email,
+            permission: res.data.permission,
+            token: res.data.token
+          });
+          this.props.history.push("/");
         } else {
-          console.log(res.data.message);
+          // console.log(res.data.message);
           this.setState({
-            signupFailed: res.data.message
+            alert: res.data.message,
+            button: "Buat Akun"
           });
           this.resetAlert();
         }
@@ -81,15 +80,10 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-  };
-
-  clickSubmit = () => {
-    if (!this.state.data.name) {
-      console.log("button disabled");
-    } else {
-      this.postDataAPI();
-      // console.log(this.state.data);
-    }
+    this.postAPIRegister();
+    this.setState({
+      button: "Loading..."
+    });
   };
 
   clickShowPassword = () => {
@@ -104,18 +98,18 @@ class Signup extends Component {
     });
   };
 
+  loadingButton = () => {
+    this.setState({
+      button: "Loading..."
+    });
+  };
+
   resetAlert = () => {
     setTimeout(() => {
       this.setState({
-        signupFailed: ""
+        alert: !this.state.alert
       });
     }, 3000);
-  };
-
-  loadingSubmit = () => {
-    this.setState({
-      loadingSubmit: "Loading..."
-    });
   };
 
   render() {
@@ -131,17 +125,15 @@ class Signup extends Component {
     if (!buttonEnable) {
       SignupButton = (
         <ButtonBig
-          title={this.state.loadingSubmit}
-          className={"ds-block text-center mg-0 fw-bold btn-disable"}
-          onClick={null}
+          title={this.state.button}
+          className={"width-100 text-center mg-0 fw-bold btn-disable"}
         />
       );
     } else {
       SignupButton = (
         <ButtonBig
-          title={this.state.loadingSubmit}
-          className={"ds-block text-center mg-0 fw-bold "}
-          onClick={this.clickSubmit}
+          title={this.state.button}
+          className={"width-100 text-center mg-0 fw-bold "}
         />
       );
     }
@@ -240,12 +232,12 @@ class Signup extends Component {
 
               <div
                 className={
-                  this.state.signupFailed.length > 0
+                  this.state.alert
                     ? "card-alert failed"
                     : "card-alert-disable failed"
                 }
               >
-                <p>{this.state.signupFailed}</p>
+                <p>{this.state.alert}</p>
               </div>
 
               {SignupButton}
@@ -266,4 +258,23 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+const stateToProps = state => {
+  return {
+    isAuth: state.auth.isAuthenticated,
+    user_id: state.auth.id,
+    name: state.auth.name,
+    role_id: state.auth.role_id,
+    phone_number: state.auth.phone_number,
+    email: state.auth.email,
+    permission: state.auth.permission,
+    token: state.auth.token
+  };
+};
+
+const dispatchToProps = dispatch => ({
+  __registerUser: payload => {
+    dispatch(registerUser(payload));
+  }
+});
+
+export default connect(stateToProps, dispatchToProps)(Register);

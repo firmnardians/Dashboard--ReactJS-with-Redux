@@ -4,13 +4,14 @@ import "./Button.css";
 const ButtonBig = props => {
   return (
     <>
-      <div
-        className={`btn btn-primary cursor-pointer ds-inline-blok ${props.className}`}
+      <button
+        type="submit"
+        className={`btn btn-primary cursor-pointer ds-inline-blok btn-big ${props.className}`}
         onClick={props.onClick}
         disabled={props.disabled}
       >
         {props.title}
-      </div>
+      </button>
     </>
   );
 };

@@ -5,9 +5,11 @@ const InputNormal = props => {
   return (
     <>
       <input
-        type="text"
+        name={props.name}
+        type={props.type}
         title={props.title}
         className="input-normal"
+        autoComplete={props.autoComplete}
         onChange={props.onChange}
       />
     </>

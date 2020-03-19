@@ -1,5 +1,6 @@
 $primaryColor: #031b4d;
 $secondaryColor: rgb(42, 138, 108);
+$alertColor: rgb(155, 43, 58);
 
 @font-face {
   font-family: "Material Icons";
@@ -55,7 +56,9 @@ body {
 .color-primary {
   color: $secondaryColor;
 }
-
+.color-alert {
+  color: $alertColor;
+}
 // Color
 
 /* Heading */
@@ -171,6 +174,9 @@ h6 {
 .width-25 {
   width: 25%;
 }
+.width-100 {
+  width: 100%;
+}
 .row:after {
   content: "";
   display: table;
@@ -284,3 +290,67 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 // hide number
+
+// Disable Select
+input[disabled],
+select[disabled],
+input[readonly],
+select[readonly] {
+  background-color: #dfdfdf;
+}
+// Disable Select
+
+// Select Group
+.select-group {
+  padding: 8px 14px;
+  border-radius: 4px;
+  width: 70%;
+  border: 1px solid #0000009e;
+  font-size: 18px;
+  height: 45px;
+  background: #ffffff;
+}
+select {
+  outline: none;
+}
+
+// Select Group
+
+// Loading
+#loading {
+  width: 50px;
+  height: 50px;
+  border: solid 5px #ccc;
+  border-top-color: rgb(42, 138, 108);
+  border-radius: 100px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  overflow: show;
+  bottom: 0;
+  margin: auto;
+  animation: myload 2s linear infinite;
+}
+@keyframes myload {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.overlay {
+  background: #031b4d;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  z-index: 5;
+}
+// Loading

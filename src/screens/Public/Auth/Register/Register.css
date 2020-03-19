@@ -1,0 +1,59 @@
+.card-signup-app {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -30%);
+  top: 50%;
+}
+.icon-show-password {
+  position: absolute;
+  top: -13px;
+  left: -40px;
+}
+.card-show-password {
+  position: relative;
+}
+.card-form-signup {
+  border-radius: 5px;
+  background-color: #fff;
+  width: 400px;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 20%);
+  margin-bottom: 50px;
+}
+.card-title-signup {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.card-title-signup h1 {
+  font-weight: bold;
+  margin: 0;
+}
+.card-title-signup p {
+  margin-top: 5px;
+}
+.card-input-signup {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.card-input-signup-disable {
+  display: none;
+}
+.input-form-signup {
+  padding: 8px 14px;
+  border-radius: 4px;
+  width: 100%;
+  border: 2px solid #0000009e;
+  font-size: 18px;
+}
+.card-refferal-signup {
+  display: flow-root;
+}
+.card-refferal-signup p {
+  float: right;
+  margin: 0px;
+}

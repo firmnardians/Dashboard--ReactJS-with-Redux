@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DetailTransactions from "../../components/DetailTransactions/DetailTransactions";
+import DetailTransactions from "../../../components/DetailTransactions/DetailTransactions";
 
 class Report extends Component {
   render() {

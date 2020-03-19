@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Notification from "../Notification/notification";
 import { Link, withRouter } from "react-router-dom";
 import ButtonBig from "../Button/ButtonBig";
 import { connect } from "react-redux";
@@ -17,23 +16,16 @@ class Navbar extends Component {
     return (
       <>
         <div className="navbar-app">
-          <Link to="/">
+          <Link to="/detail">
             <div className="card-brand">
               <h1>{this.props.brand}</h1>
             </div>
           </Link>
-
           <div className="card-navbar-menu">
             <ul className="navbar-list">
               {/* Jika Sudah Login Start */}
               {this.props.isAuth && (
                 <>
-                  <Link to="/create-outlet">
-                    <li className="sm-none">
-                      <ButtonBig title="Create Outlet" className="mr-20" />
-                    </li>
-                  </Link>
-
                   <li className="sm-none">
                     <ButtonBig
                       onClick={this.logOutUser}
@@ -41,31 +33,9 @@ class Navbar extends Component {
                       className="mr-20"
                     />
                   </li>
-
-                  <>
-                    <li>
-                      <Notification />
-                    </li>
-                    <li>
-                      <i className="material-icons navbar-icon">person</i>
-                    </li>
-                  </>
                 </>
               )}
               {/* Jika Sudah Login Finish */}
-
-              {/* Jika Belum Login Start */}
-              {!this.props.isAuth && (
-                <>
-                  <Link className="mr-20 fw-600" to="/login">
-                    <ButtonBig title="Login" />
-                  </Link>
-                  <Link className="mr-20 fw-600" to="/register">
-                    <ButtonBig title="Register" />
-                  </Link>
-                </>
-              )}
-              {/* Jika Belum Login Finish */}
             </ul>
           </div>
         </div>
