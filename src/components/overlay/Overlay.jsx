@@ -6,12 +6,13 @@ const Overlay = props => {
     <div>
       <div
         className={
-          props.className
-            ? "overlay "
-            : "overlay transition-overlay overlay-active "
+          props.activeOverlay
+            ? "overlayModal transition-overlayModal overlayModal-active "
+            : "overlayModal "
         }
-        onClick={props.onClick}
-      ></div>
+      >
+        {props.children}
+      </div>
     </div>
   );
 };

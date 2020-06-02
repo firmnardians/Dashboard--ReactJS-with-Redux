@@ -1,0 +1,39 @@
+.card-jumbo {
+  height: 85vh;
+  background-image: linear-gradient(-60deg, #2956a3, #212348 55%);
+}
+.card-images-landing-homepage {
+  z-index: 1;
+  height: 70vh;
+  width: auto;
+  position: relative;
+  bottom: -100px;
+  margin: auto 10%;
+}
+.data-image {
+  width: auto;
+  height: 90%;
+  margin: auto 10%;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-title-homepage {
+  z-index: 1;
+  height: 70vh;
+  width: 80%;
+  position: relative;
+  bottom: -100px;
+  margin: auto 10%;
+}
+.card-title-homepage h1 {
+  color: #ffffff;
+  font-size: 2.3em;
+  font-weight: 600;
+}
+.card-title-homepage p {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.5em;
+}

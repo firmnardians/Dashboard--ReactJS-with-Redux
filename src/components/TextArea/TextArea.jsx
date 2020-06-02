@@ -5,8 +5,9 @@ const TextArea = props => {
   return (
     <>
       <div className="text-area-group">
+        <p>{props.label}</p>
         <textarea
-          className={props.className}
+          className="text-area"
           name={props.name}
           id={props.id}
           cols={props.cols}

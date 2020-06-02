@@ -16,10 +16,16 @@ class Navbar extends Component {
   render() {
     return (
       <>
-        <div className="navbar-app">
+        <div
+          className={
+            !this.props.isAuth ? "navbar-app white" : "navbar-app blue"
+          }
+        >
           <Link to="/">
             <div className="card-brand">
-              <h1>{this.props.brand}</h1>
+              <h1 className={!this.props.isAuth ? "white" : " blue"}>
+                {this.props.brand}
+              </h1>
             </div>
           </Link>
 
@@ -30,7 +36,10 @@ class Navbar extends Component {
                 <>
                   <Link to="/create-outlet">
                     <li className="sm-none">
-                      <ButtonBig title="Create Outlet" className="mr-20" />
+                      <ButtonBig
+                        title="Create Outlet"
+                        className="mr-20 fw-600"
+                      />
                     </li>
                   </Link>
 
@@ -38,7 +47,7 @@ class Navbar extends Component {
                     <ButtonBig
                       onClick={this.logOutUser}
                       title="Keluar"
-                      className="mr-20"
+                      className="mr-20 fw-600"
                     />
                   </li>
 
@@ -57,11 +66,11 @@ class Navbar extends Component {
               {/* Jika Belum Login Start */}
               {!this.props.isAuth && (
                 <>
-                  <Link className="mr-20 fw-600" to="/login">
-                    <ButtonBig title="Login" />
+                  <Link to="/login">
+                    <ButtonBig className="fw-600 mr-20" title="Login" />
                   </Link>
-                  <Link className="mr-20 fw-600" to="/register">
-                    <ButtonBig title="Register" />
+                  <Link to="/register">
+                    <ButtonBig className="fw-600 mr-20" title="Register" />
                   </Link>
                 </>
               )}

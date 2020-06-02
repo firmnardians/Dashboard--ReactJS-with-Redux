@@ -83,14 +83,14 @@ h6 {
 /* Heading */
 
 /* Display */
-.ds-inline-blok {
-  display: inline-block;
+.ds-inline-block {
+  display: inline-block !important;
 }
 .ds-block {
-  display: block;
+  display: block !important;
 }
 .ds-flex {
-  display: flex;
+  display: flex !important;
 }
 /* Display */
 
@@ -121,6 +121,9 @@ h6 {
 }
 .ml-20 {
   margin-left: 20px;
+}
+.mb-5 {
+  margin-bottom: 5px;
 }
 /* Margin */
 
@@ -177,10 +180,19 @@ h6 {
 .width-100 {
   width: 100%;
 }
+.width-75 {
+  width: 75% !important;
+}
 .row:after {
   content: "";
   display: table;
   clear: both;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
 }
 .column {
   float: left;
@@ -304,7 +316,7 @@ select[readonly] {
 .select-group {
   padding: 8px 14px;
   border-radius: 4px;
-  width: 70%;
+  width: 79%;
   border: 1px solid #0000009e;
   font-size: 18px;
   height: 45px;

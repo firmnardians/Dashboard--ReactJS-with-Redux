@@ -1,40 +1,45 @@
 .transition {
-  -webkit-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  -o-transition: all 0.1s;
-  -ms-transition: all 0.1s;
-  transition: all 0.1s;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 .modal {
   height: 0px;
   width: 0px;
-  position: absolute;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  z-index: 4;
+  font-size: 0;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgb(255, 255, 255);
-  border-radius: 8px;
-  z-index: 10;
-  font-size: 0;
 }
 .modal-active {
-  height: 450px;
-  width: 600px;
-  font-size: 21px;
+  height: 300px;
+  width: 350px;
+  font-size: 20px;
 }
 .modal-title {
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
-.modal-title h2 {
+.modal-title h3 {
   color: #000000;
 }
 .modal-content {
   padding: 20px 30px;
 }
+.modal-content p {
+  margin: 0;
+  color: #0000009a;
+}
+.modal-content h4 {
+  margin: 0;
+}
 .modal-footer {
   position: fixed;
-  padding: 20px 30px;
+  padding: 0px 30px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -42,19 +47,21 @@
 .card-grid-modal {
   margin-right: 40px;
 }
-.discard-button-modal {
-  padding: 0;
-  font-weight: 600;
-  color: rgb(160, 52, 52);
-  cursor: pointer;
-}
 .discard-button-modal h4 {
   margin: 0;
 }
-.save-button-modal {
+.normal-color {
+  color: #333333;
+}
+.danger-color {
+  color: rgb(160, 52, 52);
+}
+.sucess-color {
+  color: rgb(52, 77, 160);
+}
+.button-modal {
   padding: 0;
   font-weight: 600;
-  color: rgb(52, 77, 160);
   cursor: pointer;
 }
 .save-button-modal h4 {

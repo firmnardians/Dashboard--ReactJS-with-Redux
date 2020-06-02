@@ -1,14 +1,14 @@
-.transition-overlay {
+.transition-overlayModal {
   -webkit-transition: all 0.1s;
   -moz-transition: all 0.1s;
   -o-transition: all 0.1s;
   -ms-transition: all 0.1s;
   transition: all 0.1s;
 }
-.overlay {
+.overlayModal {
   height: 0vh;
   width: 0vw;
-  background: rgba(0, 0, 0, 0.502);
+  background: rgba(0, 0, 0, 0.801);
   opacity: 0.9;
   position: fixed;
   overflow-y: scroll;
@@ -18,7 +18,7 @@
   left: 0;
   transition: opacity 0.05s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.overlay-active {
+.overlayModal-active {
   transition: opacity 0.05s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   width: 110%;

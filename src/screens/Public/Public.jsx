@@ -15,15 +15,14 @@ class Public extends Component {
       <>
         <Navbar brand="HOPCASH" />
         <div className="padding-top-navbar-fixed"></div>
-        <div className="card-flex">
-          <Switch>
-            <Route exact path="/" component={Index}></Route>
-            <Route path="/login" component={Login}></Route>
-            <Route path="/register" component={Register}></Route>
-            <Route path="/forgot-password" component={ForgotPassword}></Route>
-            <Route component={NotFounds} />
-          </Switch>
-        </div>
+
+        <Switch>
+          <Route exact path="/" component={Index}></Route>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
+          <Route path="/forgot-password" component={ForgotPassword}></Route>
+          <Route component={NotFounds} />
+        </Switch>
       </>
     );
   }

@@ -1,0 +1,29 @@
+.circle-loading {
+  width: 30px;
+  height: 30px;
+  border: solid 5px #cccccc;
+  border-top-color: #031b4d;
+  border-radius: 100px;
+  align-items: center;
+  overflow: show;
+  margin: auto;
+  text-align: center;
+  animation: circle 2s linear infinite;
+}
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card-loading {
+  align-items: center;
+  text-align: center;
+}
+.card-loading p {
+  font-weight: 600;
+  font-size: 1em;
+}

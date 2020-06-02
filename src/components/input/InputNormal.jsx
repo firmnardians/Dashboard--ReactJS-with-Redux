@@ -6,6 +6,7 @@ const InputNormal = props => {
     <>
       <input
         name={props.name}
+        value={props.value}
         type={props.type}
         title={props.title}
         className="input-normal"

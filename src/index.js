@@ -3,15 +3,11 @@ import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 
-// Pages
-import App from "./App";
-// Redux
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-// Store
 import configureStore from "./redux/Store/Store";
+import App from "./App";
 
-// Styling
 import "./index.css";
 
 const { persistor, store } = configureStore();
@@ -28,4 +24,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.unregister();
+serviceWorker.register();

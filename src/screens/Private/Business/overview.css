@@ -1,0 +1,94 @@
+.card-content-overview {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.card-data-outlet {
+  padding: 20px;
+  background: rgba(121, 119, 119, 0.338);
+  border-radius: 6px 6px 0px 0px;
+  margin-top: 15px;
+}
+.card-data-outlet h3 {
+  margin: 0px;
+  font-weight: 500;
+}
+.title-content-overview h2 {
+  margin: 0px;
+}
+.card-content-overview p {
+  margin: 0px;
+}
+.data-content-overview {
+  padding: 20px;
+  padding-left: 0px;
+}
+.detail-content {
+  margin-top: 20px;
+}
+.detail-content h3 {
+  margin: 0;
+  color: #000000c0;
+}
+.detail-content p {
+  margin-left: 10px;
+}
+.card-detail-outlet-overview {
+  padding: 20px;
+  border: 1px solid rgba(121, 119, 119, 0.338);
+  margin-bottom: 15px;
+}
+.accordion {
+  border: none;
+}
+.accordion__panel {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+}
+.accordion__item + .accordion__item {
+  border-top: none;
+}
+.accordion__button {
+  width: auto;
+  margin-top: 15px;
+}
+.accordion__button:focus {
+  outline: none;
+  border: none;
+}
+.accordion__button:hover {
+  outline: none;
+  border: none;
+}
+.accordion__button:active {
+  outline: none;
+  border: none;
+}
+.detail-outlet-accordion p {
+  margin: 10px 0px;
+}
+.detail-outlet-button {
+  margin-bottom: 10px;
+}
+.detail-outlet-action {
+  margin: 10% auto;
+}
+
+.card-setting-overview {
+  width: 50%;
+}
+
+.card-setting-overview p {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.card-delete-business-overview {
+  margin-top: 30px;
+  border-top: 2px solid #dddddd;
+  padding: 20px;
+}
+.card-delete-business-overview p {
+  margin-top: 0px;
+}
+.card-delete-business-overview h2 {
+  margin-bottom: 5px;
+}

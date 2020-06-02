@@ -2,14 +2,14 @@
   position: relative;
   margin-top: 20px;
 }
-.text-area {
-  display: none;
-  outline: none;
-  padding: 13px 8px;
-  border: 2px solid #dddddd;
-  font-size: 16px;
-  border-radius: 4px;
+.text-area-group p {
+  margin: 5;
 }
-.text-area-active {
-  display: block;
+.text-area {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  font-weight: 600;
+  outline: none;
 }

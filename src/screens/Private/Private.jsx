@@ -6,10 +6,15 @@ import { connect } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
 import Drawer from "../../components/Drawer/Drawer";
 import Dashboard from "./Dashboard/Dashboard";
+import NavbarDetail from "../../components/Navbar/NavbarDetail";
+
 import Report from "./Report/Report";
 import Outlet from "./Outlet/Outlet";
 import Detail from "./Detail/Detail";
-import NavbarDetail from "../../components/Navbar/NavbarDetail";
+import Business from "./Business/Business";
+import CreateBusiness from "./Business/CreateBusiness";
+import ErrorPages from "./Error/ErrorPages";
+import Overview from "./Business/Overview";
 
 class Private extends Component {
   constructor(props) {
@@ -35,7 +40,6 @@ class Private extends Component {
           this.setState({
             isBusiness: !this.state.isBusiness
           });
-          this.props.history.push("/");
         } else {
           console.log("belum punya bisnis");
           this.props.history.push("/detail");
@@ -75,6 +79,16 @@ class Private extends Component {
                 <Route exact path="/" component={Dashboard}></Route>
                 <Route path="/report" component={Report}></Route>
                 <Route path="/create-outlet" component={Outlet}></Route>
+                <Route path="/business" component={Business}></Route>
+                <Route
+                  path="/overview/:businessId"
+                  component={Overview}
+                ></Route>
+                <Route
+                  path="/create-business"
+                  component={CreateBusiness}
+                ></Route>
+                <Route component={NotFounds} />
               </Switch>
             </div>
           </>
@@ -83,6 +97,10 @@ class Private extends Component {
     );
   }
 }
+
+const NotFounds = () => {
+  return <ErrorPages />;
+};
 
 const stateToProps = state => {
   return {

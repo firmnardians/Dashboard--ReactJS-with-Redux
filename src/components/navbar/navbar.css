@@ -1,20 +1,25 @@
 .navbar-app {
   padding: 12px 30px;
-  background: #031b4d;
-  color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0px;
   left: 0;
-  height: 50px;
+  height: 60px;
   right: 0;
   z-index: 2;
-  box-shadow: 5px 5px 10px rgba(92, 91, 91, 0.5);
+  box-shadow: 0px 5px 10px rgba(92, 91, 91, 0.5);
+}
+.blue {
+  background: #031b4d;
+  color: #ffffff;
+}
+.white {
+  background: #ffffff;
+  color: #031b4d;
 }
 .navbar-app h1 {
-  color: #ffffff;
   padding-left: 20px;
   margin: 0;
 }

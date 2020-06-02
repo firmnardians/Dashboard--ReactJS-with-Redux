@@ -1,0 +1,52 @@
+.card-first-step {
+  display: block;
+}
+.card-first-step-active {
+  display: none;
+}
+
+.card-second-step {
+  display: none;
+}
+
+.card-second-step-active {
+  display: block;
+}
+.content-title-multi-step {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.content-title-multi-step h1 {
+  margin: 0;
+}
+.content-title-multi-step p {
+  margin-top: 5px;
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.card-content-multi-step {
+  border: 2px solid #333;
+  padding: 25px;
+  border-radius: 6px;
+}
+.card-number-multi-step {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-number-multi-step h3 {
+  padding: 10px 15px;
+  margin: 0;
+  background: rgb(145, 144, 144);
+  display: inline-block;
+  border-radius: 100px;
+  color: #ffffff;
+}
+.active {
+  background: dodgerblue !important;
+}
+.card-multi-step {
+  padding: 20px;
+  margin: auto 10%;
+}
